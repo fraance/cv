@@ -415,15 +415,62 @@
 
     /* ── Print / PDF styles ──────────────────────────────────── */
     @media print {
+      @page {
+        size: A4;
+        margin: 14mm 16mm;
+      }
+
       .toolbar { display: none; }
       .page-wrap { padding-top: 0; }
-      body { background: white; }
-      .hero { padding: 2rem 2rem 1.5rem; }
-      .section { padding: 1.8rem 2rem; }
-      .exp-card { break-inside: avoid; }
+
+      body {
+        background: white;
+        font-size: 13px;
+        color: #0d0d0d;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .hero {
+        padding: 1.4rem 0 1.2rem;
+        max-width: 100%;
+      }
+
+      .hero-name { font-size: 2.6rem; }
+      .hero-badge { margin-bottom: 1rem; }
+      .hero-profile { margin-bottom: 1.4rem; }
+      .hero-contacts { gap: 0.4rem; }
+      .contact-chip { font-size: 0.72rem; padding: 0.25rem 0.65rem; }
+
+      .section {
+        padding: 1.2rem 0;
+        max-width: 100%;
+      }
+
+      .section-divider {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .exp-card {
+        break-inside: avoid;
+        gap: 0 1.8rem;
+      }
+
+      .exp-role { font-size: 1rem; }
+      .exp-bullets li { font-size: 0.8rem; }
+
+      .two-col { gap: 0 2.5rem; }
+
       .edu-item { break-inside: avoid; }
       .rec-item { break-inside: avoid; }
+
+      .section-title { font-size: 1.3rem; }
+
       .footer { display: none; }
+
+      /* Hide the localhost URL browsers inject */
+      a[href]::after { content: none !important; }
     }
 
     /* ── Responsive ──────────────────────────────────────────── */
